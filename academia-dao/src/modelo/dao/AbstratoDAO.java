@@ -25,7 +25,6 @@ public class AbstratoDAO {
 			conexao.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			e.printStackTrace();
 		}
 	}
 }
