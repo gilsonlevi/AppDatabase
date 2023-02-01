@@ -26,11 +26,11 @@ public class MedicoDAO extends AbstratoDAO {
 		return adicionou;
 	}
 	
-	public Medico buscarPorMatricula(int Matricula) {
+	public Medico buscarPorMatricula(int matricula) {
 		Medico medico = null;
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("select from medico where matricula = ?");
-			stmt.setInt(1, Matricula);
+			PreparedStatement stmt = conexao.prepareStatement("select * from medico where matricula = ?");
+			stmt.setInt(1, matricula);
 			
 			ResultSet rs = stmt.executeQuery();
 			

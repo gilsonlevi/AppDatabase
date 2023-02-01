@@ -1,9 +1,12 @@
 package visao.terminal;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
+import modelo.dao.ConsultaDAO;
 import modelo.dao.MedicoDAO;
 import modelo.dao.PacienteDAO;
+import modelo.entidade.Consulta;
 import modelo.entidade.Medico;
 import modelo.entidade.Paciente;
 
@@ -16,6 +19,8 @@ public class Main {
 			System.out.println("1. Cadastrar medico");
 			System.out.println("2. Cadastrar paciente");
 			System.out.println("3. Buscar medico por matricula");
+			System.out.println("4. Buscar paciente por CPF");
+			System.out.println("5. Cadastrar uma consulta");
 			System.out.println("Digite sua opção: ");
 			int opcao = teclado.nextInt();
 			teclado.nextLine();
@@ -63,23 +68,59 @@ public class Main {
 					System.out.println("Paciente adicionado com sucesso!!");
 				}
 			}else if (opcao == 3) {
-				Medico medico = null;
+				Medico medico = new Medico();
 				System.out.println("Digite a matricula do medico: ");
 				int matricula = teclado.nextInt();
 				
 				MedicoDAO dao = new MedicoDAO();
 
 				medico = dao.buscarPorMatricula(matricula);
-				if(medico == null) {
-					System.out.println("Não há medico");
-				}
-				
-				/*System.out.println("ID: " + medico.getId());
+
+				System.out.println("ID: " + medico.getId());
 				System.out.println("Nome: " + medico.getNome());
 				System.out.println("Matricula: " + medico.getMatricula());
 				System.out.println("Especialidade: " + medico.getEspecialidade());
-				System.out.println("Salario: " + medico.getSalario());*/
+				System.out.println("Salario: " + medico.getSalario());
+				System.out.println("--------------------------------");	
+			}else if (opcao == 4) {
+				Paciente paciente = new Paciente();
 				
+				System.out.println("Digite o CPF do paciente: ");
+				String cpf = teclado.nextLine();
+				
+				PacienteDAO dao = new PacienteDAO();
+				
+				paciente = dao.buscarPorCPF(cpf);
+				
+				System.out.println("ID: " + paciente.getId());
+				System.out.println("Nome: " + paciente.getNome());
+				System.out.println("CPF: " + paciente.getCpf());
+				System.out.println("Doença: " + paciente.getDoenca());
+				System.out.println("--------------------------------");	
+			}else if (opcao == 5) {
+				Consulta consulta = new Consulta();
+				System.out.println("Digite a matricula do medico: ");
+				int matricula = teclado.nextInt();
+				teclado.nextLine();
+				
+				System.out.println("Digite o CPF do paciente: ");
+				String cpf = teclado.nextLine();
+				
+				System.out.println("Digite o horario da consulta: ");
+				LocalDateTime horario = DateUtil.stringToDate(teclado.nextLine(), LocalDateTime.class); 
+				
+				System.out.println("Digite o valor da consulta: ");
+				double valor = teclado.nextDouble();
+				
+				ConsultaDAO dao = new ConsultaDAO();
+				
+				boolean adicionou = dao.adicionarConsulta(matricula, cpf, horario, valor);
+				
+				if(adicionou == true) {
+					System.out.println("Consulta adicionada com sucesso!!");
+				}else if(adicionou == false) {
+					System.out.println("A consulta não foi adicionada");
+				}
 				
 			}
 		}

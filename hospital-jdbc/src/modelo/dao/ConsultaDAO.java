@@ -11,9 +11,10 @@ public class ConsultaDAO extends AbstratoDAO{
 				PreparedStatement stmt = conexao.prepareStatement("insert into consulta (id_paciente, id_medico, horario, valor) values (?,?,?,?)");
 				stmt.setString(1, cpf);
 				stmt.setInt(2, matricula);
-				stmt.setObject(horario, stmt);
+				stmt.setObject(3, horario);
+				stmt.setDouble(4, valor);
 				
-				
+				adicionou = stmt.executeUpdate() == 1;
 				
 			} catch (Exception e) {
 				

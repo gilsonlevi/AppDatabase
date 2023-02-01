@@ -25,11 +25,11 @@ public class PacienteDAO extends AbstratoDAO{
 		return adicionar;
 	}
 	
-	public Paciente buscarPorCPF(int cpf) {
+	public Paciente buscarPorCPF(String cpf) {
 		Paciente paciente = null;
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("select from paciente where cpf = ?");
-			stmt.setInt(1, cpf);
+			PreparedStatement stmt = conexao.prepareStatement("select * from paciente where cpf = ?");
+			stmt.setString(1, cpf);
 			
 			ResultSet rs = stmt.executeQuery();
 			
