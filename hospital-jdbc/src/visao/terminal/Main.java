@@ -1,8 +1,13 @@
 package visao.terminal;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+import modelo.dao.AbstratoDAO;
 import modelo.dao.ConsultaDAO;
 import modelo.dao.MedicoDAO;
 import modelo.dao.PacienteDAO;
@@ -11,7 +16,7 @@ import modelo.entidade.Medico;
 import modelo.entidade.Paciente;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Scanner teclado = new Scanner(System.in);
 		
 		while(true) {
@@ -21,6 +26,9 @@ public class Main {
 			System.out.println("3. Buscar medico por matricula");
 			System.out.println("4. Buscar paciente por CPF");
 			System.out.println("5. Cadastrar uma consulta");
+			System.out.println("6. Remover uma consulta cadastrada");
+			System.out.println("7. Atualizar o horario de uma consulta cadastrada");
+			System.out.println("8. Gerar relatório das consultas");
 			System.out.println("Digite sua opção: ");
 			int opcao = teclado.nextInt();
 			teclado.nextLine();
@@ -98,6 +106,7 @@ public class Main {
 				System.out.println("Doença: " + paciente.getDoenca());
 				System.out.println("--------------------------------");	
 			}else if (opcao == 5) {
+	
 				Consulta consulta = new Consulta();
 				System.out.println("Digite a matricula do medico: ");
 				int matricula = teclado.nextInt();
@@ -114,6 +123,8 @@ public class Main {
 				
 				ConsultaDAO dao = new ConsultaDAO();
 				
+				
+				
 				boolean adicionou = dao.adicionarConsulta(matricula, cpf, horario, valor);
 				
 				if(adicionou == true) {
@@ -121,6 +132,12 @@ public class Main {
 				}else if(adicionou == false) {
 					System.out.println("A consulta não foi adicionada");
 				}
+			
+			}else if (opcao == 6) {
+				
+			}else if (opcao == 7) {
+				
+			}else if (opcao == 8) {
 				
 			}
 		}

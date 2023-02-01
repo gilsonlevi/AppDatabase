@@ -4,22 +4,22 @@ import java.time.LocalDateTime;
 
 public class Consulta {
 
-	private int id_paciente;
-	private int id_medico;
+	private int matricula;
+	private String cpf;
 	private LocalDateTime horario;
 	private double valor;
 	
-	public int getId_paciente() {
-		return id_paciente;
+	public int getMatricula() {
+		return matricula;
 	}
-	public void setId_paciente(int id_paciente) {
-		this.id_paciente = id_paciente;
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
 	}
-	public int getId_medico() {
-		return id_medico;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setId_medico(int id_medico) {
-		this.id_medico = id_medico;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public LocalDateTime getHorario() {
 		return horario;

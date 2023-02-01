@@ -3,6 +3,9 @@ package modelo.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.entidade.Contato;
 import visao.terminal.DateUtil;
@@ -83,6 +86,31 @@ public class ContatoDAO extends AbstratoDAO{
 			System.err.println(e);
 		}
 		return alterar;
+	}
+	
+	public List<Contato> listarContatos(){
+		List<Contato> contatos = new ArrayList<>();;
+		try {
+			PreparedStatement stmt = conexao.prepareStatement("select * from contato");
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				Contato contato = new Contato();
+				contato.setId(rs.getInt("id"));
+				contato.setNome(rs.getString("nome")); 
+				contato.setEmail(rs.getString("email"));
+				contato.setCelular(rs.getInt("celular"));
+				contato.setNascimento(rs.getObject("nascimento", LocalDate.class));
+				contato.setCadastro(rs.getObject("cadastro", LocalDateTime.class));
+				
+				contatos.add(contato);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return contatos;
 	}
 	
 	
