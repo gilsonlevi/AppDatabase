@@ -1,0 +1,88 @@
+package visao.terminal;
+
+import java.util.Scanner;
+
+import modelo.dao.MedicoDAO;
+import modelo.dao.PacienteDAO;
+import modelo.entidade.Medico;
+import modelo.entidade.Paciente;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		
+		while(true) {
+			System.out.println("0. Sair do programa");
+			System.out.println("1. Cadastrar medico");
+			System.out.println("2. Cadastrar paciente");
+			System.out.println("3. Buscar medico por matricula");
+			System.out.println("Digite sua opção: ");
+			int opcao = teclado.nextInt();
+			teclado.nextLine();
+			
+			if(opcao == 0) {
+				System.out.println("Saindo do programa");
+				break;
+			}else if(opcao == 1) {
+				Medico medico = new Medico();
+				System.out.println("Digite o nome do medico: ");
+				medico.setNome(teclado.nextLine());
+				
+				System.out.println("Digite a matricula: ");
+				medico.setMatricula(teclado.nextInt());
+				teclado.nextLine();
+				
+				System.out.println("Digite a especialidade: ");
+				medico.setEspecialidade(teclado.nextLine());
+				
+				System.out.println("Digite o salario: ");
+				medico.setSalario(teclado.nextDouble());
+				
+				MedicoDAO dao = new MedicoDAO();
+				boolean adicionou = dao.adicionarMedico(medico);
+				if(adicionou == true) {
+					System.out.println("Medico adicionado com sucesso!!");
+				}
+				
+			}else if (opcao == 2) {
+				Paciente paciente = new Paciente();
+				System.out.println("Digite o nome do paciente: ");
+				paciente.setNome(teclado.nextLine());
+				
+				System.out.println("Digite o CPF: ");
+				paciente.setCpf(teclado.nextLine());
+				
+				System.out.println("Digite a doença: ");
+				paciente.setDoenca(teclado.nextLine());
+				
+				PacienteDAO dao = new PacienteDAO();
+				
+				boolean adicionou = dao.adicionarPaciente(paciente);
+				
+				if(adicionou == true) {
+					System.out.println("Paciente adicionado com sucesso!!");
+				}
+			}else if (opcao == 3) {
+				Medico medico = null;
+				System.out.println("Digite a matricula do medico: ");
+				int matricula = teclado.nextInt();
+				
+				MedicoDAO dao = new MedicoDAO();
+
+				medico = dao.buscarPorMatricula(matricula);
+				if(medico == null) {
+					System.out.println("Não há medico");
+				}
+				
+				/*System.out.println("ID: " + medico.getId());
+				System.out.println("Nome: " + medico.getNome());
+				System.out.println("Matricula: " + medico.getMatricula());
+				System.out.println("Especialidade: " + medico.getEspecialidade());
+				System.out.println("Salario: " + medico.getSalario());*/
+				
+				
+			}
+		}
+		
+	}
+}
