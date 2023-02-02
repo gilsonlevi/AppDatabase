@@ -9,9 +9,9 @@ public class AbstratoDAO {
 	protected Connection conexao;
 	
 	public AbstratoDAO() {
-		final String url = "jdbc:mysql://10.225.0.4/20201164010004_hospital";
-		final String usuario = "20201164010004";
-		final String senha = "20201164010004+alves";
+		final String url = "jdbc:mysql://localhost/20201164010016_hospital_jdbc";
+		final String usuario = "20201164010016+aires";
+		final String senha = "20201164010016+aires";
 		
 		try {
 			conexao =  DriverManager.getConnection(url, usuario, senha);

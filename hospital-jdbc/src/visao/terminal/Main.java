@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Scanner;
 
 import modelo.dao.AbstratoDAO;
@@ -123,8 +125,6 @@ public class Main {
 				
 				ConsultaDAO dao = new ConsultaDAO();
 				
-				
-				
 				boolean adicionou = dao.adicionarConsulta(matricula, cpf, horario, valor);
 				
 				if(adicionou == true) {
@@ -135,10 +135,53 @@ public class Main {
 			
 			}else if (opcao == 6) {
 				
+				System.out.println("Digite a matricula do medico: ");
+				int matricula = teclado.nextInt();
+				teclado.nextLine();
+				
+				System.out.println("Digite o CPF do paciente: ");
+				String cpf = teclado.nextLine();
+				
+				System.out.println("Digite o horario da consulta: ");
+				LocalDateTime horario = DateUtil.stringToDate(teclado.nextLine(), LocalDateTime.class);
+			
+				ConsultaDAO dao = new ConsultaDAO();
+				boolean removeu = dao.remover(matricula, cpf, horario);
+				if(removeu == true) {
+					System.out.println("Consulta removida com sucesso!!!");
+				}
 			}else if (opcao == 7) {
+				System.out.println("Digite a matricula do medico: ");
+				int matricula = teclado.nextInt();
+				teclado.nextLine();
+				
+				System.out.println("Digite o CPF do paciente: ");
+				String cpf = teclado.nextLine();
+				
+				System.out.println("Digite o horario da consulta: ");
+				LocalDateTime horario = DateUtil.stringToDate(teclado.nextLine(), LocalDateTime.class);
+				
+				System.out.println("Digite o novo horario da consulta: ");
+				LocalDateTime novoHorario = DateUtil.stringToDate(teclado.nextLine(), LocalDateTime.class);
+				
+				ConsultaDAO dao = new ConsultaDAO();
+				boolean atualizou = dao.atualizar(matricula, cpf, horario, novoHorario);
+				if(atualizou == true) {
+					System.out.println("Horario atulizado com sucesso!!");
+				}
 				
 			}else if (opcao == 8) {
+				ConsultaDAO dao = new ConsultaDAO();
+				List<Consulta> consultas = null; 
+				consultas = dao.listar();
 				
+				for (Consulta consulta : consultas) {
+					System.out.println("Nome do medico: " + consulta.getMedico().getNome());
+					System.out.println("Nome do paciente: " + consulta.getPaciente().getNome());
+					System.out.println("Horario da consulta: " + consulta.getHorario());
+					System.out.println("Valor da consulta: " + consulta.getValor());
+					System.out.println("------------------------------------------------");
+				}
 			}
 		}
 		
