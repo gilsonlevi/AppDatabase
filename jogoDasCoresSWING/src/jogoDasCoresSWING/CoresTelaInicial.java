@@ -3,6 +3,7 @@ package jogoDasCoresSWING;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -17,6 +18,16 @@ import java.awt.event.ActionEvent;
 public class CoresTelaInicial extends JFrame {
 
 	private JPanel contentPane;
+	private JButton botaoMagenta;
+	private JButton botaoAzul;
+	private JButton botaoVerde;
+	private JButton botaoLaranja;
+	private JButton botaoCinza;
+	private JButton botaoBranco;
+	private JButton botaoPreto;
+	private JButton botaoVermelho;
+	private JButton botaoRosa;
+	
 	private List<String> cores = new ArrayList();
 	
 
@@ -42,7 +53,7 @@ public class CoresTelaInicial extends JFrame {
 	public CoresTelaInicial() {
 		setTitle("Cores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 450);
+		setBounds(100, 100, 450, 488);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,12 +61,13 @@ public class CoresTelaInicial extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton botaoMagenta = new JButton("Magenta");
+		botaoMagenta = new JButton("Magenta");
 		botaoMagenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoMagenta.setEnabled(false);
 				botaoMagenta.setBackground(Color.LIGHT_GRAY);
-				
+				cores.add("Magenta");
+				checarTodosBotoes();
 			}
 		});
 		botaoMagenta.setContentAreaFilled(false);
@@ -66,11 +78,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoMagenta.setBounds(10, 11, 120, 120);
 		contentPane.add(botaoMagenta);
 		
-		JButton botaoAzul = new JButton("Azul");
+		botaoAzul = new JButton("Azul");
 		botaoAzul.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoAzul.setEnabled(false);
 				botaoAzul.setBackground(Color.LIGHT_GRAY);
+				cores.add("Azul");
+				checarTodosBotoes();
 			}
 		});
 		botaoAzul.setForeground(Color.WHITE);
@@ -82,12 +96,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoAzul.setBounds(10, 145, 120, 120);
 		contentPane.add(botaoAzul);
 		
-		JButton botaoVerde = new JButton("Verde");
+		botaoVerde = new JButton("Verde");
 		botaoVerde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoVerde.setEnabled(false);
 				botaoVerde.setBackground(Color.LIGHT_GRAY);
-				
+				cores.add("Verde");
+				checarTodosBotoes();
 			}
 		});
 		botaoVerde.setContentAreaFilled(false);
@@ -98,11 +113,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoVerde.setBounds(160, 11, 120, 120);
 		contentPane.add(botaoVerde);
 		
-		JButton botaoLaranja = new JButton("Laranja");
+		botaoLaranja = new JButton("Laranja");
 		botaoLaranja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoLaranja.setEnabled(false);
 				botaoLaranja.setBackground(Color.LIGHT_GRAY);
+				cores.add("Laranja");
+				checarTodosBotoes();
 			}
 		});
 		botaoLaranja.setContentAreaFilled(false);
@@ -113,11 +130,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoLaranja.setBounds(304, 11, 120, 120);
 		contentPane.add(botaoLaranja);
 		
-		JButton botaoCinza = new JButton("Cinza");
+		botaoCinza = new JButton("Cinza");
 		botaoCinza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoCinza.setEnabled(false);
 				botaoCinza.setBackground(Color.LIGHT_GRAY);
+				cores.add("Cinza");
+				checarTodosBotoes();
 			}
 		});
 		botaoCinza.setContentAreaFilled(false);
@@ -128,11 +147,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoCinza.setBounds(304, 145, 120, 120);
 		contentPane.add(botaoCinza);
 		
-		JButton botaoBranco = new JButton("Branco");
+		botaoBranco = new JButton("Branco");
 		botaoBranco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoBranco.setEnabled(false);
 				botaoBranco.setBackground(Color.LIGHT_GRAY);
+				cores.add("Branco");
+				checarTodosBotoes();
 			}
 		});
 		botaoBranco.setContentAreaFilled(false);
@@ -143,11 +164,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoBranco.setBounds(10, 280, 120, 120);
 		contentPane.add(botaoBranco);
 		
-		JButton botaoPreto = new JButton("Preto");
+		botaoPreto = new JButton("Preto");
 		botaoPreto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoPreto.setEnabled(false);
 				botaoPreto.setBackground(Color.LIGHT_GRAY);
+				cores.add("Preto");
+				checarTodosBotoes();
 			}
 		});
 		botaoPreto.setForeground(Color.WHITE);
@@ -159,11 +182,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoPreto.setBounds(160, 280, 120, 120);
 		contentPane.add(botaoPreto);
 		
-		JButton botaoVermelho = new JButton("Vermelho");
+		botaoVermelho = new JButton("Vermelho");
 		botaoVermelho.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoVermelho.setEnabled(false);
 				botaoVermelho.setBackground(Color.LIGHT_GRAY);
+				cores.add("Vermelho");
+				checarTodosBotoes();
 			}
 		});
 		botaoVermelho.setContentAreaFilled(false);
@@ -174,11 +199,13 @@ public class CoresTelaInicial extends JFrame {
 		botaoVermelho.setBounds(304, 280, 120, 120);
 		contentPane.add(botaoVermelho);
 		
-		JButton botaoRosa = new JButton("Rosa");
+		botaoRosa = new JButton("Rosa");
 		botaoRosa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				botaoRosa.setEnabled(false);
 				botaoRosa.setBackground(Color.LIGHT_GRAY);
+				cores.add("Rosa");
+				checarTodosBotoes();
 			}
 		});
 		botaoRosa.setContentAreaFilled(false);
@@ -188,5 +215,48 @@ public class CoresTelaInicial extends JFrame {
 		botaoRosa.setFont(new Font("Tahoma", Font.BOLD, 17));
 		botaoRosa.setBounds(160, 145, 120, 120);
 		contentPane.add(botaoRosa);
+		
+		JButton reiniciar = new JButton("REINICIAR");
+		reiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reiniciar();
+			}
+		});
+		reiniciar.setBounds(160, 411, 120, 27);
+		contentPane.add(reiniciar);
+	}
+	
+	private void checarTodosBotoes() {
+		if(botaoMagenta.isEnabled() == false && botaoAzul.isEnabled() == false && botaoBranco.isEnabled() == false && botaoCinza.isEnabled() == false 
+				&& botaoLaranja.isEnabled() == false && botaoPreto.isEnabled() == false && botaoRosa.isEnabled() == false && botaoVerde.isEnabled() == false && botaoVermelho.isEnabled() == false
+				) {
+			JOptionPane.showMessageDialog(this, cores.get(0) +  " > " +  cores.get(1) +  " > " +  cores.get(2) +  " > " +  cores.get(3) +  " > " +  cores.get(4) +  " > " +  cores.get(5) +
+					" > " +  cores.get(6) +  " > " +  cores.get(7) +  " > " +  cores.get(8), "Jogo das Cores",
+					JOptionPane.INFORMATION_MESSAGE);			
+		}
+	}
+	
+	private void reiniciar () {
+		 botaoMagenta.setEnabled(true);
+		 botaoAzul.setEnabled(true);
+		 botaoVerde.setEnabled(true);
+		 botaoLaranja.setEnabled(true);
+		 botaoCinza.setEnabled(true);
+		 botaoBranco.setEnabled(true);
+		 botaoPreto.setEnabled(true);
+		 botaoVermelho.setEnabled(true);
+		 botaoRosa.setEnabled(true);
+		 
+		 botaoMagenta.setBackground(Color.magenta);
+		 botaoAzul.setBackground(Color.blue);
+		 botaoVerde.setBackground(Color.green);
+		 botaoLaranja.setBackground(Color.orange);
+		 botaoCinza.setBackground(Color.gray);
+		 botaoBranco.setBackground(Color.white);
+		 botaoPreto.setBackground(Color.black);
+		 botaoVermelho.setBackground(Color.red);
+		 botaoRosa.setBackground(Color.pink);
+		 
+		 cores.clear();
 	}
 }
