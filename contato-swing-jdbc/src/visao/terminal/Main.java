@@ -1,6 +1,7 @@
 package visao.terminal;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 import modelo.dao.ContatoDAO;
@@ -14,6 +15,7 @@ public class Main {
 			System.out.println("0. Sair do programa");
 			System.out.println("1. Adicionar contato");
 			System.out.println("2. Consultar contato");
+			System.out.println("3. Listar contatos");
 			System.out.println("Digite sua opcão");
 			int opcao = teclado.nextInt();
 			teclado.nextLine();
@@ -56,6 +58,14 @@ public class Main {
 				}else
 					System.out.println("O contato não foi encontrado!!");
 
+			}else if (opcao == 3) {
+				ContatoDAO dao = new ContatoDAO();
+				List<Contato> contatos =  dao.listarContatos();
+				
+				for (Contato contato : contatos) {
+					System.out.println("ID: " + contato.getId());
+				}
+				
 			}
 			
 		}
