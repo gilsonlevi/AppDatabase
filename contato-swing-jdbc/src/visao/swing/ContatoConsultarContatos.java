@@ -12,11 +12,15 @@ import modelo.dao.ContatoDAO;
 import modelo.entidade.Contato;
 
 import javax.swing.JScrollPane;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ContatoConsultarContatos extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tabela;
+	private JButton btnVoltar;
 
 	/**
 	 * Launch the application.
@@ -40,7 +44,7 @@ public class ContatoConsultarContatos extends JFrame {
 	public ContatoConsultarContatos() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 510, 215);
+		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -51,10 +55,23 @@ public class ContatoConsultarContatos extends JFrame {
 		contentPane.setLayout(null);
 		
 		tabela = new JTable(dados, colunas);
+		tabela.setEnabled(false);
 		
 		JScrollPane barraRolagem = new JScrollPane(tabela);
-		barraRolagem.setBounds(10, 10, 476, 157);
+		barraRolagem.setBounds(10, 52, 414, 198);
 		contentPane.add(barraRolagem);
+		
+		btnVoltar = new JButton("VOLTAR");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ContatoTelaInicial cont = new ContatoTelaInicial();
+				dispose();
+				cont.setVisible(true);
+				
+			}
+		});
+		btnVoltar.setBounds(10, 11, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 	
 	private Object[][] listar() {
@@ -77,6 +94,4 @@ public class ContatoConsultarContatos extends JFrame {
 
 		return matriz;
 	}
-	
-
 }

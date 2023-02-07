@@ -89,12 +89,11 @@ public class ContatoDAO extends AbstratoDAO{
 	}
 	
 	public List<Contato> listarContatos(){
-		List<Contato> contatos = null;
+		List<Contato> contatos = new ArrayList<>();
 		try {
 			PreparedStatement stmt = conexao.prepareStatement("select * from contato");
 			ResultSet rs = stmt.executeQuery();
 			
-			contatos = new ArrayList<>();
 			
 			while(rs.next()) {
 				Contato contato = new Contato();
@@ -103,7 +102,6 @@ public class ContatoDAO extends AbstratoDAO{
 				contato.setEmail(rs.getString("email"));
 				contato.setCelular(rs.getInt("celular"));
 				contato.setNascimento(rs.getObject("nascimento", LocalDate.class));
-				contato.setCadastro(rs.getObject("cadastro", LocalDateTime.class));
 				
 				contatos.add(contato);
 			}

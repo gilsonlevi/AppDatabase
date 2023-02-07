@@ -85,6 +85,13 @@ public class ContatoTelaInicial extends JFrame {
 		contentPane.add(btRemoverContato);
 		
 		JButton btVerContatos = new JButton("Ver Contatos");
+		btVerContatos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ContatoConsultarContatos cont  = new ContatoConsultarContatos();
+				dispose();
+				cont.setVisible(true);
+			}
+		});
 		btVerContatos.setBounds(17, 116, 158, 37);
 		contentPane.add(btVerContatos);
 		

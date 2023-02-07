@@ -64,6 +64,10 @@ public class Main {
 				
 				for (Contato contato : contatos) {
 					System.out.println("ID: " + contato.getId());
+					System.out.println("Nome: " + contato.getNome());
+					System.out.println("Celular: " + contato.getCelular());
+					System.out.println("Email: " + contato.getEmail());
+					System.out.println("Nascimento: " + contato.getNascimento());
 				}
 				
 			}
