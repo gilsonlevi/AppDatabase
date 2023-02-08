@@ -11,6 +11,7 @@ public class Contato {
 	private int celular;
 	private LocalDate nascimento;
 	private LocalDateTime cadastro;
+	private int novo;
 	
 	public int getId() {
 		return id;
