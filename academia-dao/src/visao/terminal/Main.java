@@ -7,6 +7,7 @@ public class Main {
 		
 		Scanner teclado = new Scanner(System.in);
 		while(true) {
+			System.out.println("----------------------------");
 			System.out.println("Bem vindo");
 			System.out.println("0. Sair do programa");
 			System.out.println("1. Adicionar funcionario");
@@ -14,19 +15,11 @@ public class Main {
 			System.out.println("3. Excluir funcionario");
 			System.out.println("4. Ver todos os funcionarios");
 			System.out.println("Digite um opção: ");
+			System.out.println("----------------------------");
 			int resp = teclado.nextInt();
 			teclado.nextLine();
 			if(resp == 0) {
-				System.out.println("----------------------------");
 				System.out.println("Saindo do programa...");
-				System.out.println("----------------------------");
-				System.out.println("----------------------------");
-				System.out.println("----------------------------");
-				System.out.println("----------------------------");
-				System.out.println("----------------------------");
-				System.out.println("----------------------------");
-				System.out.println("----------------------------");
-				
 				break;
 			}else if (resp == 1) {
 				Menu.menuAdicionarFuncionario();
