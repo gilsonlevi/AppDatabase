@@ -20,6 +20,13 @@ public class Main {
 				System.out.println("----------------------------");
 				System.out.println("Saindo do programa...");
 				System.out.println("----------------------------");
+				System.out.println("----------------------------");
+				System.out.println("----------------------------");
+				System.out.println("----------------------------");
+				System.out.println("----------------------------");
+				System.out.println("----------------------------");
+				System.out.println("----------------------------");
+				
 				break;
 			}else if (resp == 1) {
 				Menu.menuAdicionarFuncionario();
