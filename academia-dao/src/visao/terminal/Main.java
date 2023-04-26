@@ -17,9 +17,11 @@ public class Main {
 			System.out.println("Digite um opção: ");
 			int resp = teclado.nextInt();
 			teclado.nextLine();
-			
+			System.out.println("----------------------------");
 			if(resp == 0) {
+				System.out.println("----------------------------");
 				System.out.println("Saindo do programa...");
+				System.out.println("----------------------------");
 				break;
 			}else if (resp == 1) {
 				Menu.menuAdicionarFuncionario();
