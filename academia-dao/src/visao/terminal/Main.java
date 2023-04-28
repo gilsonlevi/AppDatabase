@@ -15,10 +15,6 @@ public class Main {
 			System.out.println("3. Excluir funcionario");
 			System.out.println("4. Ver todos os funcionarios");
 			System.out.println("Digite um opção: ");
-			System.out.println("----------------------------");
-			System.out.println("----------------------------");
-			System.out.println("----------------------------");
-			System.out.println("----------------------------");
 			int resp = teclado.nextInt();
 			teclado.nextLine();
 			if(resp == 0) {
@@ -37,8 +33,6 @@ public class Main {
 		
 		teclado.close();
 	}
-		
-
 		
 }
 
