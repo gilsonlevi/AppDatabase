@@ -1,15 +1,10 @@
 package visao.terminal;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
-import modelo.dao.AbstratoDAO;
 import modelo.dao.ConsultaDAO;
 import modelo.dao.MedicoDAO;
 import modelo.dao.PacienteDAO;
